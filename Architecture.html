@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LuxeEstate | Engineering Excellence</title>
+    <style>
+        @layer base, layout, components, interactive;
+
+        @layer base {
+            :root {
+                --primary: #1a2a3a;
+                --accent: #c9a55c;
+                --bg: #fdfdfd;
+                --text: #2d3436;
+                --text-light: #636e72;
+                --card-bg: #ffffff;
+                --border: #e0e0e0;
+                --shadow: 0 10px 30px -10px rgba(0,0,0,0.1);
+                --font-main: 'Segoe UI', system-ui, sans-serif;
+                transition: background 0.3s ease, color 0.3s ease;
+            }
+
+            body:has(#dark-mode-input:checked) {
+                --bg: #0f172a;
+                --text: #f1f5f9;
+                --text-light: #94a3b8;
+                --card-bg: #1e293b;
+                --border: #334155;
+                --shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.3);
+                --primary: #e2e8f0;
+            }
+
+            * { box-sizing: border-box; margin: 0; padding: 0; }
+            body { 
+                font-family: var(--font-main); 
+                background: var(--bg); 
+                color: var(--text); 
+                line-height: 1.6;
+                overflow-x: hidden;
+            }
+        }
+
+        @layer layout {
+            .container { width: min(1200px, 90vw); margin-inline: auto; }
+            
+            header {
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+                padding-block: 1rem;
+                border-bottom: 1px solid var(--border);
+                position: sticky;
+                top: 0;
+                background: var(--bg);
+                z-index: 1000;
+            }
+
+            .grid-system {
+                display: grid;
+                grid-template-columns: repeat(auto-fill, minmax(min(100%, 320px), 1fr));
+                gap: 2rem;
+                padding-block: 2rem;
+            }
+        }
+
+        @layer components {
+            .property-card {
+                background: var(--card-bg);
+                border: 1px solid var(--border);
+                border-radius: 8px;
+                overflow: hidden;
+                transition: transform 0.3s ease;
+                display: flex;
+                flex-direction: column;
+            }
+
+            .property-card:hover { transform: translateY(-8px); }
+
+            .gallery-wrapper {
+                position: relative;
+                aspect-ratio: 16 / 10;
+                overflow-x: auto;
+                display: flex;
+                scroll-snap-type: x mandatory;
+                scrollbar-width: none;
+            }
+            .gallery-wrapper::-webkit-scrollbar { display: none; }
+
+            .gallery-wrapper img {
+                scroll-snap-align: start;
+                width: 100%;
+                height: 100%;
+                object-fit: cover;
+                flex-shrink: 0;
+            }
+
+            .gallery-nav {
+                position: absolute;
+                bottom: 1rem;
+                left: 50%;
+                transform: translateX(-50%);
+                display: flex;
+                gap: 0.5rem;
+                pointer-events: none;
+            }
+            .dot { width: 6px; height: 6px; background: rgba(255,255,255,0.5); border-radius: 50%; }
+
+            .card-content {
+                padding: 1.5rem;
+            }
+
+            .price { font-size: 1.5rem; font-weight: 800; color: var(--accent); }
+            .title { font-size: 1.25rem; margin-top: 0.5rem; }
+            .meta { color: var(--text-light); font-size: 0.9rem; }
+            
+            .badge {
+                position: absolute;
+                top: 1rem; left: 1rem;
+                background: var(--accent);
+                color: white;
+                padding: 0.3rem 0.7rem;
+                font-size: 0.7rem;
+                font-weight: bold;
+                border-radius: 4px;
+                z-index: 10;
+            }
+        }
+
+        @layer interactive {
+            #dark-mode-input, #menu-toggle { display: none; }
+            
+            .theme-toggle-label {
+                width: 50px;
+                height: 26px;
+                background: #334155;
+                display: flex;
+                align-items: center;
+                border-radius: 50px;
+                cursor: pointer;
+                position: relative;
+                padding: 5px;
+                flex-shrink: 0;
+            }
+            .toggle-ball {
+                width: 18px;
+                height: 18px;
+                background: #f1f5f9;
+                border-radius: 50%;
+                transition: transform 0.3s ease;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+            }
+            
+            #dark-mode-input:checked + .theme-toggle-label .toggle-ball {
+                transform: translateX(22px);
+            }
+
+            .toggle-ball::before { content: "☀️"; font-size: 10px; }
+            #dark-mode-input:checked + .theme-toggle-label .toggle-ball::before { content: "🌙"; }
+
+            .nav-links { 
+                display: flex; 
+                gap: 2rem; 
+                list-style: none; 
+                align-items: center; 
+            }
+
+            .nav-links a { 
+                text-decoration: none; 
+                color: inherit; 
+                font-weight: 500; 
+                font-size: 0.95rem; 
+            }
+
+            /* --- HAMBURGER FIX STARTS HERE --- */
+            .menu-icon { 
+                display: none; 
+                font-size: 1.8rem; 
+                cursor: pointer; 
+                z-index: 1001;
+                user-select: none;
+            }
+
+            /* This sets the icon to Hamburger by default */
+            .menu-icon::before {
+                content: "☰";
+            }
+
+            @media (max-width: 768px) {
+                .menu-icon { display: block; }
+
+                /* This changes the icon to X when the checkbox is checked */
+                #menu-toggle:checked ~ .menu-icon::before {
+                    content: "✕";
+                }
+
+                .nav-links {
+                    position: fixed; 
+                    top: 0; 
+                    right: -100%; /* Hidden off-screen */
+                    bottom: 0;
+                    width: 280px; 
+                    background: var(--card-bg);
+                    flex-direction: column; 
+                    justify-content: center;
+                    padding: 2rem;
+                    transition: 0.4s ease;
+                    box-shadow: -10px 0 30px rgba(0,0,0,0.1);
+                    z-index: 1000;
+                }
+
+                #menu-toggle:checked ~ .nav-links { 
+                    right: 0; /* Slides in */
+                }
+            }
+            /* --- HAMBURGER FIX ENDS HERE --- */
+
+            .search-bar {
+                display: flex;
+                background: var(--card-bg);
+                padding: 0.5rem;
+                border: 1px solid var(--border);
+                border-radius: 12px;
+                max-width: 700px;
+                margin: 2rem auto;
+            }
+
+            .search-bar input {
+                flex: 1; border: none; background: transparent;
+                padding-left: 1rem; color: var(--text); outline: none;
+                min-width: 0;
+            }
+
+            .search-bar button {
+                background: var(--primary); color: white;
+                border: none; padding: 0.8rem 1.2rem;
+                border-radius: 8px; cursor: pointer; font-weight: 600;
+                white-space: nowrap;
+            }
+
+            @media (max-width: 480px) {
+                .search-bar { flex-direction: column; background: transparent; border: none; gap: 10px; }
+                .search-bar input { background: var(--card-bg); border: 1px solid var(--border); border-radius: 8px; padding: 1rem; }
+                .search-bar button { width: 100%; padding: 1rem; }
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <input type="checkbox" id="dark-mode-input">
+
+    <div class="container">
+        <header>
+            <div class="logo">
+                <h2 style="letter-spacing: -1px; color: var(--accent);">LUXE<strong>ESTATE</strong></h2>
+            </div>
+            
+            <nav style="display: flex; align-items: center; gap: 2rem;">
+                <!-- Checkbox -->
+                <input type="checkbox" id="menu-toggle">
+                <!-- Icon Label (Content controlled by CSS) -->
+                <label for="menu-toggle" class="menu-icon"></label>
+                
+                <ul class="nav-links">
+                    <li><a href="#Buy">Buy</a></li>
+                    <li><a href="#Rent">Rent</a></li>
+                    <li><a href="#Sell">Sell</a></li>
+                    <li>
+                        <label for="dark-mode-input" class="theme-toggle-label" title="Toggle Light/Dark Mode">
+                            <div class="toggle-ball"></div>
+                        </label>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section style="text-align: center; padding-block: 5rem 2rem;">
+            <h1 style="font-size: clamp(2.5rem, 6vw, 4rem); line-height: 1.1; margin-bottom: 1.5rem;">Precision Living.</h1>
+            <p style="color: var(--text-light); max-width: 600px; margin-inline: auto;">The world's most advanced real estate platform, engineered for the modern aesthetic.</p>
+            
+            <form class="search-bar">
+                <input type="text" placeholder="Search by city, neighborhood, or address...">
+                <button type="button">Find Home</button>
+            </form>
+        </section>
+
+        <main class="grid-system">
+            
+            <!-- Property 1 -->
+            <article class="property-card">
+                <div class="gallery-wrapper">
+                    <span class="badge">New Listing</span>
+                    <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=800" alt="Home">
+                    <img src="Kitchen.jpeg" alt="Kitchen">
+                    <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=800" alt="Bath">
+                    <div class="gallery-nav"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="card-content">
+                    <div class="price">$3,250,000</div>
+                    <h3 class="title">The Glass Pavilion</h3>
+                    <p class="meta">4 Beds • 5 Baths • 4,500 sqft</p>
+                    <p class="meta">Malibu, California</p>
+                </div>
+            </article>
+
+            <!-- Property 2 -->
+            <article class="property-card">
+                <div class="gallery-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=800" alt="Home">
+                    <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=800" alt="Room">
+                    <img src="https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=800" alt="Pool">
+                    <div class="gallery-nav"><div class="dot"></div><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="card-content">
+                    <div class="price">$1,850,000</div>
+                    <h3 class="title">Veridian Estate</h3>
+                    <p class="meta">5 Beds • 4 Baths • 3,800 sqft</p>
+                    <p class="meta">Austin, Texas</p>
+                </div>
+            </article>
+
+            <!-- Property 3 -->
+            <article class="property-card">
+                <div class="gallery-wrapper">
+                    <img src="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=800" alt="Home">
+                    <img src="Panthouse.webp" alt="View">
+                    <div class="gallery-nav"><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="card-content">
+                    <div class="price">$980,000</div>
+                    <h3 class="title">Azure Penthouse</h3>
+                    <p class="meta">2 Beds • 2 Baths • 1,800 sqft</p>
+                    <p class="meta">Miami, Florida</p>
+                </div>
+            </article>
+
+            <!-- Property 4 -->
+            <article class="property-card">
+                <div class="gallery-wrapper">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=800" alt="Home">
+                    <img src="Sanctuary.jpeg" alt="View">
+                    <div class="gallery-nav"><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="card-content">
+                    <div class="price">$5,400,000</div>
+                    <h3 class="title">Modern Sanctuary</h3>
+                    <p class="meta">6 Beds • 7 Baths • 8,200 sqft</p>
+                    <p class="meta">Aspen, Colorado</p>
+                </div>
+            </article>
+
+            <!-- Property 5 -->
+            <article class="property-card">
+                <div class="gallery-wrapper">
+                    <span class="badge" style="background:#34495e">Exclusive</span>
+                    <img src="https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=800" alt="Home">
+                    <img src="Yard.jpeg" alt="Yard">
+                    <div class="gallery-nav"><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="card-content">
+                    <div class="price">$2,100,000</div>
+                    <h3 class="title">The Nordic Loft</h3>
+                    <p class="meta">3 Beds • 3 Baths • 2,900 sqft</p>
+                    <p class="meta">Seattle, Washington</p>
+                </div>
+            </article>
+
+            <!-- Property 6 -->
+            <article class="property-card">
+                <div class="gallery-wrapper">
+                    <img src="https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=800" alt="Home">
+                    <img src="Suburban.jpeg" alt="Interior">
+                    <div class="gallery-nav"><div class="dot"></div><div class="dot"></div></div>
+                </div>
+                <div class="card-content">
+                    <div class="price">$1,200,000</div>
+                    <h3 class="title">Cedar Ridge</h3>
+                    <p class="meta">4 Beds • 3 Baths • 3,100 sqft</p>
+                    <p class="meta">Portland, Oregon</p>
+                </div>
+            </article>
+
+        </main>
+    </div>
+
+    <footer style="background: var(--card-bg); border-top: 1px solid var(--border); padding-block: 4rem; margin-top: 4rem;">
+        <div class="container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 3rem;">
+            <div>
+                <h3 style="color: var(--accent); margin-bottom: 1rem;">LUXE ESTATE</h3>
+                <p style="font-size: 0.9rem; color: var(--text-light);">Engineering the future of high-end property discovery.</p>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Company</h4>
+                <ul style="list-style: none; font-size: 0.9rem; color: var(--text-light); line-height: 2;">
+                    <li>About Us</li>
+                    <li>Global Reach</li>
+                    <li>Careers</li>
+                </ul>
+            </div>
+            <div>
+                <h4 style="margin-bottom: 1rem;">Resources</h4>
+                <ul style="list-style: none; font-size: 0.9rem; color: var(--text-light); line-height: 2;">
+                    <li>Market Reports</li>
+                    <li>Style Guide</li>
+                    <li>Privacy</li>
+                </ul>
+            </div>
+        </div>
+    </footer>
+
+
+</body>
+</html>
