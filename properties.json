@@ -1,0 +1,197 @@
+{
+  "properties": [
+    {
+      "id": "p1",
+      "price": 3250000,
+      "title": "The Glass Pavilion",
+      "beds": 4,
+      "baths": 5,
+      "sqft": 4500,
+      "location": "Malibu, California",
+      "category": "California",
+      "type": "Villa",
+      "status": "For Sale",
+      "yearBuilt": 2021,
+      "garage": 2,
+      "description": "A seamless fusion of glass and steel perched above the Pacific. Floor-to-ceiling windows dissolve the boundary between interior living and the open ocean horizon.",
+      "features": ["Infinity Pool", "Home Theater", "Smart Home", "Ocean View", "Private Beach Access"],
+      "agent": { "name": "Sophia Laurent", "phone": "+1 (310) 555-0192", "avatar": "https://randomuser.me/api/portraits/women/44.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1564013799919-ab600027ffc6?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1600585152220-90363fe7e115?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1512914890251-2f96a9b0bbe2?q=80&w=1200",
+        "https://images.unsplash.com/photo-1600566752355-35792bedcfea?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": true
+    },
+    {
+      "id": "p2",
+      "price": 1850000,
+      "title": "Veridian Estate",
+      "beds": 5,
+      "baths": 4,
+      "sqft": 3800,
+      "location": "Austin, Texas",
+      "category": "Texas",
+      "type": "Estate",
+      "status": "For Sale",
+      "yearBuilt": 2019,
+      "garage": 3,
+      "description": "A masterpiece of Hill Country modern design set on two manicured acres. The open-plan interior flows to a resort-style backyard with a negative-edge pool and outdoor kitchen.",
+      "features": ["Negative-Edge Pool", "Outdoor Kitchen", "Wine Cellar", "Guest House", "Solar Panels"],
+      "agent": { "name": "Marcus Reid", "phone": "+1 (512) 555-0847", "avatar": "https://randomuser.me/api/portraits/men/32.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1600596542815-ffad4c1539a9?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1200",
+        "https://images.unsplash.com/photo-1600573472591-ee6b68d14c68?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1600489000022-c2086d79f9d4?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": false
+    },
+    {
+      "id": "azure-penthouse",
+      "title": "Azure Sky Penthouse",
+      "price": 5450000,
+      "location": "Miami, Florida",
+      "category": "Florida",
+      "beds": 4,
+      "baths": 4.5,
+      "sqft": 5200,
+      "type": "Penthouse",
+      "status": "For Sale",
+      "yearBuilt": 2022,
+      "garage": 2,
+      "description": "Occupying the entire top floor of Miami's most prestigious tower, Azure offers 360° views of Biscayne Bay, the Atlantic, and the glittering city skyline from a 3,000 sqft wraparound terrace.",
+      "features": ["360° Wraparound Terrace", "Private Elevator", "Chef's Kitchen", "Bay View", "Concierge Service"],
+      "agent": { "name": "Isabella Voss", "phone": "+1 (305) 555-0374", "avatar": "https://randomuser.me/api/portraits/women/68.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1600566753190-17f0baa2a6c3?q=80&w=1200",
+        "https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?q=80&w=1200",
+        "https://images.unsplash.com/photo-1502005229762-cf1b2da7c5d6?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": true
+    },
+    {
+      "id": "emerald-forest-retreat",
+      "title": "Emerald Forest Retreat",
+      "price": 2850000,
+      "location": "Aspen, Colorado",
+      "category": "Colorado",
+      "beds": 5,
+      "baths": 6,
+      "sqft": 6400,
+      "type": "Chalet",
+      "status": "For Sale",
+      "yearBuilt": 2018,
+      "garage": 3,
+      "description": "Nestled within 12 private acres of old-growth forest at 8,400 feet elevation. Hand-hewn timber beams, radiant-heated stone floors, and a double-sided fireplace anchor this sanctuary of alpine luxury.",
+      "features": ["Ski-In/Ski-Out", "Hot Tub", "Heated Stone Floors", "Sauna", "Game Room"],
+      "agent": { "name": "Devon Calloway", "phone": "+1 (970) 555-0621", "avatar": "https://randomuser.me/api/portraits/men/57.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1613490493576-7fde63acd811?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1507089947368-19c1da9775ae?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1507652313519-d4e9174996dd?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": false
+    },
+    {
+      "id": "obsidian-ridge",
+      "title": "Obsidian Ridge",
+      "price": 7100000,
+      "location": "Beverly Hills, California",
+      "category": "California",
+      "beds": 6,
+      "baths": 7,
+      "sqft": 8200,
+      "type": "Mansion",
+      "status": "For Sale",
+      "yearBuilt": 2023,
+      "garage": 4,
+      "description": "An architectural triumph of black-anodized steel and volcanic stone crowning the Mulholland Drive ridge. The 180° canyon-to-ocean view is uninterrupted by design — every room was positioned to frame the panorama.",
+      "features": ["Panoramic Canyon View", "Infinity Pool", "Recording Studio", "Gym & Spa", "Staff Quarters"],
+      "agent": { "name": "Natalie Chen", "phone": "+1 (424) 555-0183", "avatar": "https://randomuser.me/api/portraits/women/25.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1568605114967-8130f3a36994?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1580587771525-78b9dba3b914?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1600047509782-20d39509f26d?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": true
+    },
+    {
+      "id": "harbour-point-manor",
+      "title": "Harbour Point Manor",
+      "price": 4200000,
+      "location": "Newport, Rhode Island",
+      "category": "Rhode Island",
+      "beds": 7,
+      "baths": 6,
+      "sqft": 9100,
+      "type": "Manor",
+      "status": "For Sale",
+      "yearBuilt": 1910,
+      "garage": 2,
+      "description": "A faithfully restored Gilded Age shingle-style manor overlooking Narragansett Bay. Original mahogany paneling and herringbone parquet floors coexist with a fully modernized kitchen and a new 50-ft. saltwater pool.",
+      "features": ["Waterfront", "Historic Architecture", "Saltwater Pool", "Boat Dock", "Library"],
+      "agent": { "name": "William Ashby", "phone": "+1 (401) 555-0299", "avatar": "https://randomuser.me/api/portraits/men/71.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1571939228382-b2f2b585ce15?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1560448204-603b3fc33ddc?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1600210491892-03d54c0aaf87?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1576013551627-0cc20b96c2a7?auto=format&fit=crop&w=1200"
+        
+      ],
+      "isNew": false
+    },
+    {
+      "id": "solaris-villa",
+      "title": "Solaris Villa",
+      "price": 3750000,
+      "location": "Scottsdale, Arizona",
+      "category": "Arizona",
+      "beds": 5,
+      "baths": 5.5,
+      "sqft": 5800,
+      "type": "Villa",
+      "status": "For Sale",
+      "yearBuilt": 2020,
+      "garage": 3,
+      "description": "Desert modernism at its zenith. Low-slung rooflines and rammed-earth walls draw on the Sonoran landscape while a 22-panel solar array and 12-foot overhangs keep the interior perfectly temperate year-round.",
+      "features": ["Desert Views", "Solar Array", "Zero-Edge Pool", "Outdoor Fireplace", "Casita"],
+      "agent": { "name": "Amara Osei", "phone": "+1 (480) 555-0512", "avatar": "https://randomuser.me/api/portraits/women/12.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1505843513577-22bb7d21e455?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1489599849927-2ee91cede3ba?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1560184897-67f4a3f9a7fa?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": false
+    },
+    {
+      "id": "nordic-heights",
+      "title": "Nordic Heights",
+      "price": 2100000,
+      "location": "Park City, Utah",
+      "category": "Utah",
+      "beds": 4,
+      "baths": 4,
+      "sqft": 4200,
+      "type": "Chalet",
+      "status": "For Rent",
+      "yearBuilt": 2017,
+      "garage": 2,
+      "description": "Scandinavian-influenced mountain living with shou sugi ban cedar siding, raw concrete interiors, and walls of triple-glazed glass opening to unbroken Wasatch Range panoramas. Steps from Park City Mountain Resort.",
+      "features": ["Mountain Views", "Ski Access", "Hot Tub", "Heated Driveway", "Mudroom"],
+      "agent": { "name": "Freya Holmberg", "phone": "+1 (435) 555-0748", "avatar": "https://randomuser.me/api/portraits/women/33.jpg" },
+      "images": [
+        "https://images.unsplash.com/photo-1605276374104-dee2a0ed3cd6?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1558976825-6b1b03a03719?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1586023492125-27b2c045efd7?auto=format&fit=crop&w=1200",
+        "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200"
+      ],
+      "isNew": true
+    }
+  ]
+}
