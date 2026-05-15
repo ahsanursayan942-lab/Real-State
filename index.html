@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="LuxeEstate — Extraordinary properties for extraordinary lives.">
+    <title>LuxeEstate | Extraordinary Properties</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400;1,600&family=Jost:wght@300;400;500;600&display=swap" rel="stylesheet">
+
+    <link rel="stylesheet" href="Architectures.css">
+</head>
+<body class="loading">
+
+<div class="cursor-dot" id="cursor-dot"></div>
+<div class="cursor-ring" id="cursor-ring"></div>
+
+<input type="checkbox" id="dark-mode-input">
+
+<div class="smooth-wrapper">
+
+    <!-- ── MARQUEE ──────────────────────────────────────────── -->
+    <div class="marquee-bar" aria-hidden="true">
+        <div class="marquee-track">
+            <span>Beverly Hills</span><i>✦</i><span>Malibu</span><i>✦</i>
+            <span>The Hamptons</span><i>✦</i><span>Aspen</span><i>✦</i>
+            <span>South Beach</span><i>✦</i><span>San Francisco</span><i>✦</i>
+            <span>Newport</span><i>✦</i><span>Scottsdale</span><i>✦</i>
+            <span>Park City</span><i>✦</i><span>Charleston</span><i>✦</i>
+            <span>Beverly Hills</span><i>✦</i><span>Malibu</span><i>✦</i>
+            <span>The Hamptons</span><i>✦</i><span>Aspen</span><i>✦</i>
+            <span>South Beach</span><i>✦</i><span>San Francisco</span><i>✦</i>
+            <span>Newport</span><i>✦</i><span>Scottsdale</span><i>✦</i>
+            <span>Park City</span><i>✦</i><span>Charleston</span><i>✦</i>
+        </div>
+    </div>
+
+    <!-- ── HEADER ────────────────────────────────────────────── -->
+    <header class="main-header" id="main-header">
+        <div class="container header-inner">
+            <a href="#" class="logo">
+                <svg class="logo-icon" viewBox="0 0 20 20" fill="none">
+                    <path d="M10 1L1 7v12h6v-5h6v5h6V7L10 1z" stroke="currentColor" stroke-width="1.1" stroke-linejoin="round"/>
+                </svg>
+                LUXE<span>ESTATE</span>
+            </a>
+
+            <nav class="nav-container">
+                <input type="checkbox" id="menu-toggle">
+                <label for="menu-toggle" class="menu-icon" aria-label="Toggle menu">
+                    <span></span><span></span>
+                </label>
+                <div class="nav-overlay">
+                    <ul class="nav-links">
+                        <li><a href="#buy" class="nav-item">Buy</a></li>
+                        <li><a href="#rent" class="nav-item">Rent</a></li>
+                        <li><a href="#sell" class="nav-item">Sell</a></li>
+                        <li>
+                            <a href="#" class="nav-item">
+                                Saved
+                                <span class="wishlist-count" id="wishlist-count" style="display:none">0</span>
+                            </a>
+                        </li>
+                        <li>
+                            <label for="dark-mode-input" class="theme-toggle-label" aria-label="Toggle dark mode">
+                                <div class="toggle-ball"></div>
+                            </label>
+                        </li>
+                    </ul>
+                    <a href="#" class="nav-cta">Private Consultation</a>
+                </div>
+            </nav>
+        </div>
+    </header>
+
+    <!-- ── HERO ─────────────────────────────────────────────── -->
+    <section class="hero" id="buy">
+        <div class="hero-bg" aria-hidden="true">
+            <div class="hb-line l1"></div>
+            <div class="hb-line l2"></div>
+            <div class="hb-line l3"></div>
+            <div class="hb-arc a1"></div>
+            <div class="hb-arc a2"></div>
+            <div class="hb-glow g1"></div>
+            <div class="hb-glow g2"></div>
+            <div class="hb-grain"></div>
+        </div>
+
+        <div class="container hero-inner">
+            <div class="eyebrow">
+                <span class="eyebrow-rule"></span>
+                A New Standard in Luxury
+                <span class="eyebrow-rule"></span>
+            </div>
+
+            <h1 class="hero-title">
+                <span id="typewriter-text">Precision Living.</span><span class="typewriter-cursor" aria-hidden="true"></span>
+            </h1>
+
+            <p class="hero-subtitle">
+                The world's most refined real estate platform — where architectural mastery meets uncompromised taste.
+            </p>
+
+            <div class="search-bar-wrapper">
+                <div class="search-bar">
+                    <svg class="search-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                        <circle cx="11" cy="11" r="8"/><path d="m21 21-4.3-4.3"/>
+                    </svg>
+                    <input type="text" id="property-search" placeholder="Search city, neighborhood, or property type…" autocomplete="off">
+                    <button class="btn-primary">Search</button>
+                </div>
+                <p class="result-count" id="result-count"></p>
+            </div>
+
+            <!-- Premium Ring Stats Dashboard -->
+            <div class="ring-dashboard" id="ring-dashboard">
+
+                <div class="ring-card">
+                    <div class="ring-wrap">
+                        <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+                            <circle class="ring-track" cx="40" cy="40" r="33"/>
+                            <circle class="ring-prog" cx="40" cy="40" r="33" data-pct="88"/>
+                        </svg>
+                        <div class="ring-inner">
+                            <span class="stat-num" data-target="4800">0</span>
+                            <span class="ring-suf">+</span>
+                        </div>
+                    </div>
+                    <span class="ring-label">Active Listings</span>
+                    <div class="ring-spark">
+                        <svg viewBox="0 0 80 26" preserveAspectRatio="none" aria-hidden="true">
+                            <defs><linearGradient id="sg1" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c9a96e" stop-opacity=".28"/><stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/></linearGradient></defs>
+                            <polyline class="spark-line" points="0,22 13,17 26,19 39,11 52,14 65,6 80,3"/>
+                            <polygon class="spark-fill" points="0,22 13,17 26,19 39,11 52,14 65,6 80,3 80,26 0,26" fill="url(#sg1)"/>
+                        </svg>
+                        <span class="spark-tag">↑ 12% YoY</span>
+                    </div>
+                </div>
+
+                <div class="ring-card">
+                    <div class="ring-wrap">
+                        <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+                            <circle class="ring-track" cx="40" cy="40" r="33"/>
+                            <circle class="ring-prog" cx="40" cy="40" r="33" data-pct="98"/>
+                        </svg>
+                        <div class="ring-inner">
+                            <span class="stat-num" data-target="98">0</span>
+                            <span class="ring-suf">%</span>
+                        </div>
+                    </div>
+                    <span class="ring-label">Client Satisfaction</span>
+                    <div class="ring-bars">
+                        <div class="rb-row"><span class="rb-lbl">Exceptional</span><div class="rb-track"><div class="rb-fill" data-w="82"></div></div><span class="rb-pct">82%</span></div>
+                        <div class="rb-row"><span class="rb-lbl">Very Good</span><div class="rb-track"><div class="rb-fill" data-w="16"></div></div><span class="rb-pct">16%</span></div>
+                        <div class="rb-row"><span class="rb-lbl">Other</span><div class="rb-track"><div class="rb-fill" data-w="2"></div></div><span class="rb-pct">2%</span></div>
+                    </div>
+                </div>
+
+                <div class="ring-card">
+                    <div class="ring-wrap">
+                        <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+                            <circle class="ring-track" cx="40" cy="40" r="33"/>
+                            <circle class="ring-prog" cx="40" cy="40" r="33" data-pct="76"/>
+                        </svg>
+                        <div class="ring-inner">
+                            <span class="stat-num" data-target="12">0</span>
+                            <span class="ring-suf">B+</span>
+                        </div>
+                    </div>
+                    <span class="ring-label">In Sales Volume</span>
+                    <div class="ring-spark">
+                        <svg viewBox="0 0 80 26" preserveAspectRatio="none" aria-hidden="true">
+                            <defs><linearGradient id="sg2" x1="0" y1="0" x2="0" y2="1"><stop offset="0%" stop-color="#c9a96e" stop-opacity=".28"/><stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/></linearGradient></defs>
+                            <polyline class="spark-line" points="0,24 13,20 26,15 39,17 52,9 65,5 80,2"/>
+                            <polygon class="spark-fill" points="0,24 13,20 26,15 39,17 52,9 65,5 80,2 80,26 0,26" fill="url(#sg2)"/>
+                        </svg>
+                        <span class="spark-tag">↑ 24% YoY</span>
+                    </div>
+                </div>
+
+                <div class="ring-card">
+                    <div class="ring-wrap">
+                        <svg class="ring-svg" viewBox="0 0 80 80" aria-hidden="true">
+                            <circle class="ring-track" cx="40" cy="40" r="33"/>
+                            <circle class="ring-prog ring-prog-alt" cx="40" cy="40" r="33" data-pct="62"/>
+                        </svg>
+                        <div class="ring-inner">
+                            <span class="stat-num" data-target="18">0</span>
+                            <span class="ring-suf">Yrs</span>
+                        </div>
+                    </div>
+                    <span class="ring-label">Market Mastery</span>
+                    <div class="ring-milestones">
+                        <div class="ms-item"><span class="ms-dot"></span><span>Founded 2006</span></div>
+                        <div class="ms-item"><span class="ms-dot"></span><span>$1B milestone 2014</span></div>
+                        <div class="ms-item ms-active"><span class="ms-dot"></span><span>$12B+ today</span></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="hero-scroll" aria-hidden="true">
+            <div class="scroll-line"></div>
+            <span>Scroll</span>
+        </div>
+    </section>
+
+    <!-- ── LISTINGS ──────────────────────────────────────────── -->
+    <main class="container" id="listings">
+        <div class="section-header">
+            <h2 class="section-title">Featured <em>Properties</em></h2>
+            <a href="#" class="btn-ghost">View All →</a>
+        </div>
+
+        <div class="controls-bar">
+            <div class="filter-pills">
+                <button class="pill active" data-filter-group="status" data-filter-value="all">All</button>
+                <button class="pill" data-filter-group="status" data-filter-value="For Sale">For Sale</button>
+                <button class="pill" data-filter-group="status" data-filter-value="For Rent" id="rent">For Rent</button>
+                <div class="pill-sep" aria-hidden="true"></div>
+                <button class="pill" data-filter-group="type" data-filter-value="all">Any Type</button>
+                <button class="pill" data-filter-group="type" data-filter-value="Villa">Villa</button>
+                <button class="pill" data-filter-group="type" data-filter-value="Penthouse">Penthouse</button>
+                <button class="pill" data-filter-group="type" data-filter-value="Chalet">Chalet</button>
+                <button class="pill" data-filter-group="type" data-filter-value="Mansion">Mansion</button>
+                <button class="pill" data-filter-group="type" data-filter-value="Estate">Estate</button>
+                <button class="pill" data-filter-group="type" data-filter-value="Manor">Manor</button>
+            </div>
+            <div class="controls-right">
+                <select class="sort-select" id="sort-select" aria-label="Sort listings">
+                    <option value="default">Featured</option>
+                    <option value="price-asc">Price ↑</option>
+                    <option value="price-desc">Price ↓</option>
+                    <option value="newest">Newest</option>
+                    <option value="sqft-desc">Largest</option>
+                </select>
+                <div class="view-toggle" role="group" aria-label="View mode">
+                    <button class="view-btn active" data-view="grid" title="Grid">
+                        <svg viewBox="0 0 14 14" fill="currentColor"><rect x="0" y="0" width="6" height="6" rx="1"/><rect x="8" y="0" width="6" height="6" rx="1"/><rect x="0" y="8" width="6" height="6" rx="1"/><rect x="8" y="8" width="6" height="6" rx="1"/></svg>
+                    </button>
+                    <button class="view-btn" data-view="list" title="List">
+                        <svg viewBox="0 0 14 14" fill="currentColor"><rect x="0" y="1" width="14" height="2" rx="1"/><rect x="0" y="6" width="14" height="2" rx="1"/><rect x="0" y="11" width="14" height="2" rx="1"/></svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <div class="grid-system" id="property-grid"></div>
+    </main>
+
+    <!-- ── TESTIMONIALS ──────────────────────────────────────── -->
+    <!-- ── MARKET INTELLIGENCE ────────────────────────────────── -->
+    <section class="market-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Market <em>Intelligence</em></h2>
+                <div class="live-badge"><span class="live-dot"></span>Live Data</div>
+            </div>
+            <div class="market-grid">
+
+                <!-- Bar chart: avg price by type -->
+                <div class="mchart-card mchart-main">
+                    <div class="mchart-head">
+                        <div>
+                            <div class="mchart-title">Avg. Price by Property Type</div>
+                            <div class="mchart-sub">2025 · USD · Luxury Segment</div>
+                        </div>
+                        <div class="mchart-legend"><span class="mleg-dot"></span>Asking Price</div>
+                    </div>
+                    <div class="bar-chart-wrap" id="bar-chart"></div>
+                </div>
+
+                <div class="mchart-col">
+
+                    <!-- Donut: portfolio mix -->
+                    <div class="mchart-card mchart-donut">
+                        <div class="mchart-head">
+                            <div>
+                                <div class="mchart-title">Portfolio Mix</div>
+                                <div class="mchart-sub">By property type</div>
+                            </div>
+                        </div>
+                        <div class="donut-wrap">
+                            <svg class="donut-svg" viewBox="0 0 120 120" aria-hidden="true">
+                                <g id="donut-segs"></g>
+                                <text x="60" y="56" class="donut-num" id="donut-num">12</text>
+                                <text x="60" y="70" class="donut-lbl">Properties</text>
+                            </svg>
+                            <div class="donut-legend" id="donut-legend"></div>
+                        </div>
+                    </div>
+
+                    <!-- Area sparkline: price trend -->
+                    <div class="mchart-card mchart-area">
+                        <div class="mchart-head">
+                            <div>
+                                <div class="mchart-title">Median Price Trend</div>
+                                <div class="mchart-sub">18-month rolling</div>
+                            </div>
+                            <div class="trend-badge">↑ 18.4%</div>
+                        </div>
+                        <div class="area-wrap">
+                            <svg class="area-svg" viewBox="0 0 300 72" preserveAspectRatio="none" aria-hidden="true">
+                                <defs>
+                                    <linearGradient id="ag" x1="0" y1="0" x2="0" y2="1">
+                                        <stop offset="0%" stop-color="#c9a96e" stop-opacity=".26"/>
+                                        <stop offset="100%" stop-color="#c9a96e" stop-opacity="0"/>
+                                    </linearGradient>
+                                </defs>
+                                <line x1="0" y1="18" x2="300" y2="18" stroke="var(--border)" stroke-width=".5" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="36" x2="300" y2="36" stroke="var(--border)" stroke-width=".5" stroke-dasharray="3,3"/>
+                                <line x1="0" y1="54" x2="300" y2="54" stroke="var(--border)" stroke-width=".5" stroke-dasharray="3,3"/>
+                                <path id="area-fill" fill="url(#ag)"/>
+                                <path id="area-line" fill="none" stroke="#c9a96e" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                <circle id="area-dot" r="4" fill="#c9a96e"/>
+                            </svg>
+                            <div class="area-months" id="area-months"></div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="testimonials-section" id="sell">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Client <em>Stories</em></h2>
+            </div>
+            <div class="testimonials-grid" id="testimonials-grid"></div>
+        </div>
+    </section>
+
+    <!-- ── NEWSLETTER ────────────────────────────────────────── -->
+    <section class="newsletter-section">
+        <div class="newsletter-inner">
+            <div class="nl-deco" aria-hidden="true"></div>
+            <span class="newsletter-eyebrow">Private Intelligence</span>
+            <h2 class="newsletter-title">First Access to<br><em>Exceptional</em> Homes</h2>
+            <p class="newsletter-subtitle">Join an exclusive circle receiving off-market listings and private market intelligence before the world sees them.</p>
+            <form class="newsletter-form" id="newsletter-form"
+                  action="https://formspree.io/f/YOUR_FORM_ID"
+                  method="POST" novalidate>
+                <input type="hidden" name="_subject" value="New LuxeEstate Newsletter Subscriber">
+                <input type="email" name="email" placeholder="Your private email address" aria-label="Email address" required>
+                <button type="submit" class="btn-primary" id="nl-submit">
+                    <span id="nl-btn-text">Join the Circle</span>
+                    <span class="nl-spinner" id="nl-spinner" style="display:none" aria-hidden="true"></span>
+                </button>
+            </form>
+            <div class="nl-success" id="nl-success" style="display:none">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                    <polyline points="22 4 12 14.01 9 11.01"/>
+                </svg>
+                You're on the list. Expect excellence.
+            </div>
+        </div>
+    </section>
+
+    <!-- ── CONTACT / INQUIRY ─────────────────────────────────── -->
+    <section class="contact-section" id="contact">
+        <div class="container">
+            <div class="contact-grid">
+
+                <div class="contact-left">
+                    <span class="contact-eyebrow">Get in Touch</span>
+                    <h2 class="contact-title">Start Your<br><em>Property Journey</em></h2>
+                    <p class="contact-desc">Whether you're buying, selling, or simply exploring — our advisors are standing by for a private, no-obligation conversation.</p>
+
+                    <div class="contact-details">
+                        <div class="cd-item">
+                            <div class="cd-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.9.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="cd-label">Private Line</div>
+                                <div class="cd-value">+1 (800) 555-LUXE</div>
+                            </div>
+                        </div>
+                        <div class="cd-item">
+                            <div class="cd-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                    <polyline points="22,6 12,13 2,6"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="cd-label">Email</div>
+                                <div class="cd-value">advisors@luxeestate.com</div>
+                            </div>
+                        </div>
+                        <div class="cd-item">
+                            <div class="cd-icon">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8">
+                                    <circle cx="12" cy="12" r="10"/>
+                                    <polyline points="12 6 12 12 16 14"/>
+                                </svg>
+                            </div>
+                            <div>
+                                <div class="cd-label">Response Time</div>
+                                <div class="cd-value">Within 2 hours</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="contact-right">
+                    <form class="contact-form" id="contact-form"
+                          action="https://formspree.io/f/YOUR_FORM_ID"
+                          method="POST" novalidate>
+
+                        <input type="hidden" name="_subject" value="New LuxeEstate Inquiry">
+
+                        <div class="cf-row">
+                            <div class="cf-field">
+                                <label for="cf-name">Full Name</label>
+                                <input type="text" id="cf-name" name="name" placeholder="Your full name" required>
+                            </div>
+                            <div class="cf-field">
+                                <label for="cf-email">Email Address</label>
+                                <input type="email" id="cf-email" name="email" placeholder="your@email.com" required>
+                            </div>
+                        </div>
+                        <div class="cf-row">
+                            <div class="cf-field">
+                                <label for="cf-phone">Phone <span>(optional)</span></label>
+                                <input type="tel" id="cf-phone" name="phone" placeholder="+1 (555) 000-0000">
+                            </div>
+                            <div class="cf-field">
+                                <label for="cf-interest">I'm Interested In</label>
+                                <select id="cf-interest" name="interest">
+                                    <option value="">Select one…</option>
+                                    <option>Buying a Property</option>
+                                    <option>Renting a Property</option>
+                                    <option>Selling My Property</option>
+                                    <option>Investment Advice</option>
+                                    <option>Private Consultation</option>
+                                </select>
+                            </div>
+                        </div>
+                        <div class="cf-field cf-full">
+                            <label for="cf-budget">Budget Range</label>
+                            <select id="cf-budget" name="budget">
+                                <option value="">Select budget…</option>
+                                <option>Under $1M</option>
+                                <option>$1M – $3M</option>
+                                <option>$3M – $6M</option>
+                                <option>$6M – $10M</option>
+                                <option>$10M+</option>
+                            </select>
+                        </div>
+                        <div class="cf-field cf-full">
+                            <label for="cf-message">Your Message</label>
+                            <textarea id="cf-message" name="message" rows="4" placeholder="Tell us what you're looking for…" required></textarea>
+                        </div>
+
+                        <button type="submit" class="cf-submit" id="cf-submit">
+                            <span id="cf-btn-text">Send Inquiry</span>
+                            <span class="cf-spinner" id="cf-spinner" style="display:none" aria-hidden="true"></span>
+                            <svg class="cf-arrow" viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 10h12M11 5l5 5-5 5"/>
+                            </svg>
+                        </button>
+
+                        <div class="cf-success" id="cf-success" style="display:none">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                <polyline points="22 4 12 14.01 9 11.01"/>
+                            </svg>
+                            <div>
+                                <strong>Inquiry Received</strong>
+                                <span>An advisor will reach out within 2 hours.</span>
+                            </div>
+                        </div>
+
+                        <p class="cf-privacy">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="11" height="11">
+                                <rect x="3" y="11" width="18" height="11" rx="2" ry="2"/>
+                                <path d="M7 11V7a5 5 0 0 1 10 0v4"/>
+                            </svg>
+                            Your information is private and never shared with third parties.
+                        </p>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- ── FOOTER ─────────────────────────────────────────────── -->
+    <footer class="main-footer">
+        <div class="container footer-grid">
+            <div class="footer-brand">
+                <div class="footer-logo">LUXE<span>ESTATE</span></div>
+                <p>Engineering the future of extraordinary property discovery since 2006. Where architecture meets aspiration.</p>
+                <div class="social-row">
+                    <a href="#" class="social-btn" aria-label="Instagram">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><rect x="2" y="2" width="20" height="20" rx="5"/><circle cx="12" cy="12" r="5"/><circle cx="17.5" cy="6.5" r="1.2" fill="currentColor" stroke="none"/></svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="X / Twitter">
+                        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    </a>
+                    <a href="#" class="social-btn" aria-label="LinkedIn">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+                    </a>
+                </div>
+            </div>
+            <div class="footer-links">
+                <h4>Properties</h4>
+                <ul>
+                    <li><a href="#">For Sale</a></li>
+                    <li><a href="#">For Rent</a></li>
+                    <li><a href="#">Off-Market</a></li>
+                    <li><a href="#">New Developments</a></li>
+                    <li><a href="#">International</a></li>
+                </ul>
+            </div>
+            <div class="footer-links">
+                <h4>Company</h4>
+                <ul>
+                    <li><a href="#">About Us</a></li>
+                    <li><a href="#">Global Reach</a></li>
+                    <li><a href="#">Careers</a></li>
+                    <li><a href="#">Press</a></li>
+                    <li><a href="#">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2025 LuxeEstate. All rights reserved.</span>
+            <div class="footer-legal">
+                <a href="#">Privacy</a><a href="#">Terms</a><a href="#">Cookies</a>
+            </div>
+        </div>
+    </footer>
+
+</div><!-- .smooth-wrapper -->
+
+<!-- ── MODAL ─────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modal-overlay" role="dialog" aria-modal="true"
+     onclick="if(event.target===this) LuxeApp.closeModal()">
+    <div class="modal">
+        <button class="modal-close" onclick="LuxeApp.closeModal()" aria-label="Close modal">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/>
+            </svg>
+        </button>
+
+        <div class="modal-gallery">
+            <div class="modal-gallery-strip" id="modal-strip"></div>
+            <button class="modal-slider-btn prev" onclick="LuxeApp.modalSlide(-1)" aria-label="Previous">&#10094;</button>
+            <button class="modal-slider-btn next" onclick="LuxeApp.modalSlide(1)"  aria-label="Next">&#10095;</button>
+            <div class="modal-gallery-vignette"></div>
+            <div class="modal-img-counter" id="modal-img-counter">1 / 4</div>
+        </div>
+
+        <div class="modal-thumbs" id="modal-thumbs"></div>
+
+        <div class="modal-body">
+            <div class="modal-main">
+                <div class="modal-price-block">
+                    <div id="modal-price" class="modal-price"></div>
+                    <span class="modal-price-tag">Asking Price</span>
+                </div>
+                <h2 id="modal-title" class="modal-title"></h2>
+                <div class="modal-location">
+                    <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
+                        <circle cx="12" cy="10" r="3"/>
+                    </svg>
+                    <span id="modal-location"></span>
+                </div>
+                <div class="modal-specs">
+                    <span class="spec-chip" id="modal-chip-beds"></span>
+                    <span class="spec-chip" id="modal-chip-baths"></span>
+                    <span class="spec-chip" id="modal-chip-sqft"></span>
+                    <span class="spec-chip" id="modal-chip-type"></span>
+                    <span class="spec-chip" id="modal-chip-status"></span>
+                </div>
+                <p class="modal-description" id="modal-desc"></p>
+                <div class="modal-features-title">Property Features</div>
+                <div class="modal-features" id="modal-features"></div>
+                <!-- Private Showing CTA + Formspree Form -->
+                <div class="showing-cta-block">
+                    <div class="showing-cta-top">
+                        <div class="showing-cta-text">
+                            <strong>Request a Private Showing</strong>
+                            <span>Schedule an exclusive tour with your personal advisor</span>
+                        </div>
+                        <button class="btn-showing" id="showing-btn" onclick="LuxeApp.toggleShowingForm()">
+                            Schedule Tour
+                        </button>
+                    </div>
+
+                    <!-- Sliding form panel -->
+                    <div class="showing-form-panel" id="showing-form-panel">
+                        <form class="showing-form" id="showing-form"
+                              action="https://formspree.io/f/YOUR_FORM_ID"
+                              method="POST">
+
+                            <!-- Hidden fields auto-filled by JS with property info -->
+                            <input type="hidden" name="property_name" id="sf-property">
+                            <input type="hidden" name="property_price" id="sf-price">
+                            <input type="hidden" name="agent_name" id="sf-agent">
+
+                            <div class="sf-row">
+                                <div class="sf-field">
+                                    <label>Your Name</label>
+                                    <input type="text" name="name" placeholder="Full name" required>
+                                </div>
+                                <div class="sf-field">
+                                    <label>Email Address</label>
+                                    <input type="email" name="email" placeholder="your@email.com" required>
+                                </div>
+                            </div>
+                            <div class="sf-row">
+                                <div class="sf-field">
+                                    <label>Phone Number</label>
+                                    <input type="tel" name="phone" placeholder="+1 (555) 000-0000">
+                                </div>
+                                <div class="sf-field">
+                                    <label>Preferred Date</label>
+                                    <input type="date" name="preferred_date">
+                                </div>
+                            </div>
+                            <div class="sf-field sf-full">
+                                <label>Message <span>(optional)</span></label>
+                                <textarea name="message" rows="3" placeholder="Any specific requests or questions…"></textarea>
+                            </div>
+
+                            <div class="sf-actions">
+                                <button type="submit" class="sf-submit" id="sf-submit-btn">
+                                    <span class="sf-submit-text">Send Request</span>
+                                    <span class="sf-submit-spinner" aria-hidden="true"></span>
+                                </button>
+                                <button type="button" class="sf-cancel" onclick="LuxeApp.toggleShowingForm()">Cancel</button>
+                            </div>
+
+                            <div class="sf-success" id="sf-success" style="display:none">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
+                                    <polyline points="22 4 12 14.01 9 11.01"/>
+                                </svg>
+                                <strong>Request Sent!</strong>
+                                <span>Your advisor will contact you within 24 hours.</span>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="modal-sidebar">
+                <div class="modal-details-grid">
+                    <div class="detail-item"><div class="detail-label">Bedrooms</div><div class="detail-value" id="modal-beds"></div></div>
+                    <div class="detail-item"><div class="detail-label">Bathrooms</div><div class="detail-value" id="modal-baths"></div></div>
+                    <div class="detail-item"><div class="detail-label">Area</div><div class="detail-value"><span id="modal-sqft"></span> sqft</div></div>
+                    <div class="detail-item"><div class="detail-label">Type</div><div class="detail-value" id="modal-type"></div></div>
+                    <div class="detail-item"><div class="detail-label">Status</div><div class="detail-value" id="modal-status"></div></div>
+                    <div class="detail-item"><div class="detail-label">Year Built</div><div class="detail-value" id="modal-built"></div></div>
+                    <div class="detail-item"><div class="detail-label">Garage</div><div class="detail-value" id="modal-garage"></div></div>
+                </div>
+
+                <div class="agent-card">
+                    <div class="agent-card-header">
+                        <img class="agent-avatar" id="modal-agent-avatar" src="" alt="Agent">
+                        <div>
+                            <div class="agent-name" id="modal-agent-name"></div>
+                            <div class="agent-role" id="modal-agent-title"></div>
+                        </div>
+                    </div>
+                    <div class="agent-actions">
+                        <a class="btn-contact primary" id="modal-agent-phone-link" href="#">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07A19.5 19.5 0 0 1 4.69 12 19.79 19.79 0 0 1 1.61 3.42 2 2 0 0 1 3.6 1.25h3a2 2 0 0 1 2 1.72c.12.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L7.91 8.85a16 16 0 0 0 6 6l.97-.97a2 2 0 0 1 2.11-.45c.9.34 1.85.58 2.81.7A2 2 0 0 1 22 16.92z"/>
+                            </svg>
+                            <span id="modal-agent-phone"></span>
+                        </a>
+                        <a class="btn-contact secondary" id="modal-agent-email-link" href="#">
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+                                <polyline points="22,6 12,13 2,6"/>
+                            </svg>
+                            <span id="modal-agent-email"></span>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div id="toast-container" aria-live="polite"></div>
+
+<button id="back-to-top" aria-label="Back to top">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+        <polyline points="18 15 12 9 6 15"/>
+    </svg>
+</button>
+
+<script src="Architectures.js"></script>
+<script>
+// Auto-fill hidden showing form fields when modal opens
+document.addEventListener('click', () => {
+    const beds = document.getElementById('modal-beds');
+    if (!beds || !beds.textContent) return;
+    const map = {
+        'modal-chip-beds':   beds.textContent + ' Bedrooms',
+        'modal-chip-baths':  (document.getElementById('modal-baths')?.textContent||'') + ' Bathrooms',
+        'modal-chip-sqft':   (document.getElementById('modal-sqft')?.textContent||'') + ' sqft',
+        'modal-chip-type':   document.getElementById('modal-type')?.textContent||'',
+        'modal-chip-status': document.getElementById('modal-status')?.textContent||'',
+    };
+    Object.entries(map).forEach(([id,val])=>{ const el=document.getElementById(id); if(el&&val) el.textContent=val; });
+    // Fill showing form hidden fields
+    const sfProp  = document.getElementById('sf-property');
+    const sfPrice = document.getElementById('sf-price');
+    const sfAgent = document.getElementById('sf-agent');
+    if (sfProp)  sfProp.value  = document.getElementById('modal-title')?.textContent||'';
+    if (sfPrice) sfPrice.value = document.getElementById('modal-price')?.textContent||'';
+    if (sfAgent) sfAgent.value = document.getElementById('modal-agent-name')?.textContent||'';
+});
+
+// ── Showing form (in modal) ───────────────────────────────────
+const showingForm = document.getElementById('showing-form');
+if (showingForm) {
+    showingForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn     = document.getElementById('sf-submit-btn');
+        const text    = btn.querySelector('.sf-submit-text');
+        const spinner = btn.querySelector('.sf-submit-spinner');
+        const success = document.getElementById('sf-success');
+
+        text.style.display    = 'none';
+        spinner.style.display = 'inline-block';
+        btn.disabled          = true;
+
+        try {
+            const res = await fetch(showingForm.action, {
+                method: 'POST',
+                body: new FormData(showingForm),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                showingForm.reset();
+                showingForm.querySelector('.sf-actions').style.display = 'none';
+                showingForm.querySelectorAll('.sf-row, .sf-field').forEach(el => el.style.display = 'none');
+                success.style.display = 'flex';
+                LuxeApp.fireToast('Showing request sent — an advisor will contact you shortly.', 'add');
+            } else {
+                throw new Error();
+            }
+        } catch {
+            text.style.display    = 'inline';
+            spinner.style.display = 'none';
+            btn.disabled          = false;
+            LuxeApp.fireToast('Something went wrong. Please try again.', 'remove');
+        }
+    });
+}
+
+// ── Newsletter form ───────────────────────────────────────────
+const nlForm = document.getElementById('newsletter-form');
+if (nlForm) {
+    nlForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn     = document.getElementById('nl-submit');
+        const text    = document.getElementById('nl-btn-text');
+        const spinner = document.getElementById('nl-spinner');
+        const success = document.getElementById('nl-success');
+
+        text.style.display    = 'none';
+        spinner.style.display = 'inline-block';
+        btn.disabled          = true;
+
+        try {
+            const res = await fetch(nlForm.action, {
+                method: 'POST',
+                body: new FormData(nlForm),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                nlForm.style.display     = 'none';
+                success.style.display   = 'flex';
+            } else { throw new Error(); }
+        } catch {
+            text.style.display    = 'inline';
+            spinner.style.display = 'none';
+            btn.disabled          = false;
+            LuxeApp.fireToast('Something went wrong. Please try again.', 'remove');
+        }
+    });
+}
+
+// ── Contact / Inquiry form ────────────────────────────────────
+const cfForm = document.getElementById('contact-form');
+if (cfForm) {
+    cfForm.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const btn     = document.getElementById('cf-submit');
+        const text    = document.getElementById('cf-btn-text');
+        const spinner = document.getElementById('cf-spinner');
+        const arrow   = btn.querySelector('.cf-arrow');
+        const success = document.getElementById('cf-success');
+
+        text.style.display    = 'none';
+        if (arrow) arrow.style.display = 'none';
+        spinner.style.display = 'inline-block';
+        btn.disabled          = true;
+
+        try {
+            const res = await fetch(cfForm.action, {
+                method: 'POST',
+                body: new FormData(cfForm),
+                headers: { 'Accept': 'application/json' }
+            });
+            if (res.ok) {
+                cfForm.querySelectorAll('.cf-row, .cf-field, .cf-submit, .cf-privacy').forEach(el => el.style.display = 'none');
+                success.style.display = 'flex';
+                LuxeApp.fireToast('Inquiry received — expect a reply within 2 hours.', 'add');
+            } else { throw new Error(); }
+        } catch {
+            text.style.display    = 'inline';
+            if (arrow) arrow.style.display = 'inline';
+            spinner.style.display = 'none';
+            btn.disabled          = false;
+            LuxeApp.fireToast('Something went wrong. Please try again.', 'remove');
+        }
+    });
+}
+</script>
+</body>
+</html>
